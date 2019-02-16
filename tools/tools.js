@@ -27,50 +27,27 @@ function calculateAverageAndAppearancesFromLastGames (gamesGrades, numberOfLastG
 }
 
 function compareAverage (a, b) {
-  if (a.average < b.average) {
-    return 1
-  } else {
-    return -1
-  }
+  return (a.average < b.average) ? 1 : -1
 }
 
 function compareCoteIncreasing (a, b) {
-  if (a.cote > b.cote) {
-    return 1
-  } else {
-    return -1
-  }
+  return (a.cote > b.cote) ? 1 : -1
 }
 
 function compareCoteDecreasing (a, b) {
-  if (a.cote < b.cote) {
-    return 1
-  } else {
-    return -1
-  }
+  return (a.cote < b.cote) ? 1 : -1
 }
 
 function compareAverageLast10Games (a, b) {
-  if (a.averageLast10games < b.averageLast10games) {
-    return 1
-  } else {
-    return -1
-  }
+  return (a.averageLast10games < b.averageLast10games) ? 1 : -1
 }
+
 function compareAverageFromXLastGames (a, b) {
-  if (a.averageFromXLastGames < b.averageFromXLastGames) {
-    return 1
-  } else {
-    return -1
-  }
+  return (a.averageFromXLastGames < b.averageFromXLastGames) ? 1 : -1
 }
 
 function compareGoals (a, b) {
-  if (a.goals < b.goals) {
-    return 1
-  } else {
-    return -1
-  }
+  return (a.goals < b.goals) ? 1 : -1
 }
 
 module.exports = {
