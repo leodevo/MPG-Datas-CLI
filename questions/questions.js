@@ -1,4 +1,5 @@
 const { constants } = require('./../constant')
+const { isPositiveResponse } = require('./../tools/tools')
 
 const sortingChoicesCommon =
 [
@@ -27,9 +28,8 @@ const matchYesOrNo = (value) => {
   return pass ? true : 'Réponse invalide (O/N)'
 }
 
-const checkPositiveResponse = response => {
-  const value = response.additionalDatas.toUpperCase()
-  return (value === 'O' || value === 'OUI')
+const isPositiveResponseAdditionalDatas = response => {
+  return isPositiveResponse(response.additionalDatas)
 }
 
 const validateCote = value => {
@@ -90,7 +90,7 @@ const questions =
   default: 'N',
   validate: matchYesOrNo
 }, {
-  when: checkPositiveResponse,
+  when: isPositiveResponseAdditionalDatas,
   name: 'numberOfLastGames',
   message: `Combien de matchs les plus récents souhaitez-vous afficher la moyenne + titus ? (MAX ${constants.NUMBER_OF_GAMES})`,
   default: '5',

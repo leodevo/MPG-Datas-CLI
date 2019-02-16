@@ -15,7 +15,8 @@ const {
   compareCoteDecreasing,
   compareAverageLast10Games,
   compareAverageFromXLastGames,
-  compareGoals
+  compareGoals,
+  isPositiveResponse
 } = require('./tools/tools')
 
 const tableCharacteristics = {
@@ -228,7 +229,7 @@ function promptQuestions () {
 
 function promptFinaleQuestion () {
   inquirer.prompt(finalQuestion).then((answers) => {
-    if (answers.continue.toUpperCase() === 'O') {
+    if (isPositiveResponse(answers.continue)) {
       console.log('\n')
       promptQuestions()
     } else {

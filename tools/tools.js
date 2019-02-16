@@ -26,6 +26,10 @@ function calculateAverageAndAppearancesFromLastGames (gamesGrades, numberOfLastG
   }
 }
 
+const isPositiveResponse = value => {
+  return (value.toUpperCase() === 'O' || value.toUpperCase() === 'OUI')
+}
+
 function compareAverage (a, b) {
   return (a.average < b.average) ? 1 : -1
 }
@@ -57,5 +61,6 @@ module.exports = {
   compareCoteDecreasing,
   compareAverageLast10Games,
   compareAverageFromXLastGames,
-  compareGoals
+  compareGoals,
+  isPositiveResponse
 }
