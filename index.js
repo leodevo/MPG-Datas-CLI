@@ -123,7 +123,6 @@ const cleanAndEnhancePlayerDatas = (player, rank) => {
 }
 
 function pushPlayerDatas (player, displayTable, displayAdditionalDatas) {
-
   let arrayToPush = [
     player.rank,
     player.position,
@@ -151,8 +150,8 @@ function pushPlayerDatas (player, displayTable, displayAdditionalDatas) {
 
 function computeSearchCriterias (answers) {
   let searchCriterias = {
-    tituAndSubs: { $gte: answers.tituAndSubs },
-    tituAndSubsLast10games: { $gte: answers.tituAndSubsLast10games },
+    tituAndSubs: { $gte: answers.tituAndSubsMin },
+    tituAndSubsLast10games: { $gte: answers.tituAndSubsMinLast10games },
     cote: { $lte: answers.coteMax }
   }
 

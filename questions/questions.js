@@ -66,13 +66,13 @@ const questions =
   message: 'Poste ?',
   default: 'Tous'
 }, {
-  name: 'tituAndSubs',
+  name: 'tituAndSubsMin',
   type: 'input',
   message: `Nombre de titularisations + remplacements minimum ? (MAX ${constants.NUMBER_OF_GAMES})`,
   default: '0',
   validate: validateNumberOfLastGames
 }, {
-  name: 'tituAndSubsLast10games',
+  name: 'tituAndSubsMinLast10games',
   type: 'input',
   message: `Nombre de titularisations + remplacements minimum pour les 10 derniers matchs? (MAX 10)`,
   default: '0',
