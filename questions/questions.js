@@ -92,7 +92,7 @@ const questions =
 }, {
   when: isPositiveResponseAdditionalDatas,
   name: 'numberOfLastGames',
-  message: `Combien de matchs les plus récents souhaitez-vous afficher la moyenne + titus ? (MAX ${constants.NUMBER_OF_GAMES})`,
+  message: `Combien de matchs les plus récents souhaitez-vous afficher la moyenne & le nombre de matchs jouées ? (MAX ${constants.NUMBER_OF_GAMES})`,
   default: '5',
   validate: validateNumberOfLastGames
 }, {
