@@ -3,6 +3,7 @@ const EventEmitter = require('events')
 const Table = require('cli-table2')
 require('colors')
 
+const { argv } = require('./yargsCustom')
 const { constants } = require('./constant')
 let { mongoose } = require('./db/mongoose')
 const { Player } = require('./models/player')
