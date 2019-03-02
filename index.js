@@ -1,24 +1,10 @@
+// TODO fix vulnerabilities
+
 const { argv } = require('./yargsCustom')
 
 const inquirer = require('inquirer')
 const EventEmitter = require('events')
 require('colors')
-/*
-const { argv } = require('../yargsCustom')
-
-if (argv.local) {
-  console.log('App target : Localhost')
-} else {
-  console.log('App target : External')
-}
-const appTarget = argv.local ? 'local' : 'external'
-
-console.log('APP target : ', appLocation)
-
-let envConfig = config[appTarget]*/
-
-// -------------------
-
 const { process } = require('./process/process')
 
 
@@ -33,7 +19,7 @@ function promptQuestions () {
   inquirer.prompt(questions).then((answers) => {
     let searchCriterias = process.computeSearchCriterias(answers)
 
-    Player.find(searchCriterias) //getPlayers(searchCriteria)
+    Player.find(searchCriterias)
       .then(players => {
         return processDbResults(players, answers)
       })
@@ -43,11 +29,11 @@ function promptQuestions () {
       })
       .catch((e) => {
         console.log(e)
-        mongoose.connection.close() //endProcess(env)
+        mongoose.connection.close()
       })
   }).catch((e) => {
     console.log(e)
-    mongoose.connection.close() //endProcess(env)
+    mongoose.connection.close()
   })
 }
 
@@ -57,11 +43,11 @@ function promptFinaleQuestion () {
       console.log('\n')
       promptQuestions()
     } else {
-      mongoose.connection.close() //endProcess(env)
+      mongoose.connection.close()
     }
   }).catch((e) => {
     console.log(e)
-    mongoose.connection.close() //endProcess(env)
+    mongoose.connection.close()
   })
 }
 
