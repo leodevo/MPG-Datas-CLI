@@ -3,7 +3,7 @@ const argv = require('yargs')
     alias: 'l',
     default: false,
     boolean: true,
-    describe: 'boolean to determine whether to use local DB or external REST API'
+    describe: 'Determine whether to use local DB or external REST API'
   })
   .option('sign-up', {
     alias: 's',

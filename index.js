@@ -1,4 +1,5 @@
 // TODO fix vulnerabilities
+require('./config/config')
 require('./initalInputProcessing/initialInputProcess')
 require('colors')
 const inquirer = require('inquirer')
@@ -80,8 +81,10 @@ const startLocalScript = () => {
 
 const startExternalScript = () => {
   const { performLoginOrSignUp } = require('./externalOption/external')
+  greetings()
   performLoginOrSignUp()
-    .then(() => {
+    .then(token => {
+      console.log('got da token broooooo ', token)
       console.log('hey 2 : will perform mainProcess')
       //startMainProcess()
     })

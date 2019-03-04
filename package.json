@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "export NODE_ENV=development || SET \"NODE_ENV=development\" && node index.js"
   },
   "author": "leodevo",
   "license": "ISC",
@@ -23,6 +23,8 @@
     "inquirer": "^6.2.1",
     "mongodb": "^3.1.9",
     "mongoose": "^5.4.14",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
     "validator": "^10.11.0",
     "yargs": "^13.2.1"
   }

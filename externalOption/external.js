@@ -1,6 +1,8 @@
+const inquirer = require('inquirer')
+
 const { signUpQuestions } = require('../questions/signupQuestions')
 const { loginQuestionsPasswordAndEmail, loginQuestionsPasswordOnly } = require('../questions/loginQuestions')
-const inquirer = require('inquirer')
+const { postUser, postLogin } = require('./httpQueries/httpQueries')
 
 const performLogin = () => {
   console.log('performing login')
@@ -13,10 +15,11 @@ const performLogin = () => {
 
 const askForPasswordOnly = () => {
   console.log('asking for password only')
+  console.log('email : ', global.emailLogin)
   return inquirer.prompt(loginQuestionsPasswordOnly)
     .then((answers) => {
-      console.log('email : ', answers.email)
       console.log('password : ', answers.password)
+      return postLogin(global.emailLogin, answers.password)
     })
     .catch((e) => {
       console.log(e)
@@ -45,7 +48,7 @@ const performSignUp = () => {
         throw new Error('Les mots de passes ne sont pas identiques')
       }
 
-      return ('yo')
+      return postUser(answers.email, answers.password)
     })
     .catch((e) => {
       console.log(e)

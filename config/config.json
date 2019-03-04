@@ -1,0 +1,8 @@
+{
+  "development": {
+    "APP_TARGET_URI":"http://localhost:3000"
+  },
+  "production": {
+    "APP_TARGET_URI":"https://mpg-datas-rest-api.herokuapp.com"
+  }
+}
