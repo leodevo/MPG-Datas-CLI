@@ -1,6 +1,6 @@
 const Table = require('cli-table2')
 
-const { process } = require('../process/process')
+const { processResults } = require('./processResults')
 const {
   tableCharacteristics,
   createTableCharacteristicsAdditionalDatas
@@ -16,21 +16,21 @@ function processDbResults (players, answers) {
     console.log(`\n \t \t \t \t    Nombre de joueurs correspondant aux critères de recherche : ${players.length} \n \n`.bold)
 
     if (displayAdditionalDatas) {
-      process.computeAdditionnalDatas(players, answers.numberOfLastGames)
+      processResults.computeAdditionnalDatas(players, answers.numberOfLastGames)
       displayTable = new Table(createTableCharacteristicsAdditionalDatas(answers.numberOfLastGames))
     } else {
       displayTable = new Table(tableCharacteristics)
     }
 
-    process.sortPlayers(players, answers)
+    processResults.sortPlayers(players, answers)
 
     // Keeping only players to display
     players = players.slice(0, answers.numberOfPlayerToDisplay)
 
     let rank = 1
     players.forEach(player => {
-      process.cleanAndEnhancePlayerDatas(player, rank)
-      process.pushPlayerDatas(player, displayTable, displayAdditionalDatas)
+      processResults.cleanAndEnhancePlayerDatas(player, rank)
+      processResults.pushPlayerDatas(player, displayTable, displayAdditionalDatas)
       rank++
     })
     resolve(displayTable)

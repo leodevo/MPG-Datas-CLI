@@ -143,7 +143,7 @@ function computeAdditionnalDatas (players, numberOfLastGames) {
   })
 }
 
-const process = {
+const processResults = {
   sortPlayers,
   cleanAndEnhancePlayerDatas,
   pushPlayerDatas,
@@ -152,5 +152,5 @@ const process = {
 }
 
 module.exports = {
-  process
+  processResults
 }

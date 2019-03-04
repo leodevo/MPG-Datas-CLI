@@ -1,5 +1,5 @@
 const { constants } = require('../constants/generalConstant')
-const { isPositiveResponse } = require('../process/processTools')
+const { isPositiveResponse } = require('../processResults/processTools')
 
 const sortingChoicesCommon =
 [

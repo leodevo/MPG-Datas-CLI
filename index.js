@@ -1,25 +1,39 @@
 // TODO fix vulnerabilities
-
-const { argv } = require('./yargsCustom')
-
+require('./initalInputProcessing/initialInputProcess')
+require('colors')
 const inquirer = require('inquirer')
 const EventEmitter = require('events')
-require('colors')
-const { process } = require('./process/process')
 
-
-const { processDbResults } = require('./process/processDbResults')
+const { processDbResults } = require('./processResults/processDbResults')
 let { mongoose } = require('./db/mongoose')
 const { Player } = require('./models/player')
-const { questions, finalQuestion } = require('./questions/questions')
+const { questions, finalQuestion } = require('./questions/mainQuestions')
 const { greetings } = require('./cosmetics/cosmetics')
-const { isPositiveResponse } = require('./process/processTools')
+const { isPositiveResponse } = require('./processResults/processTools')
+const { processResults } = require('./processResults/processResults')
 
-function promptQuestions () {
+const getPlayers = (searchCriterias) => {
+  if (global.appTarget === 'local') {
+    return Player.find(searchCriterias)
+  } else {
+    //send query
+  }
+}
+
+const closeConnection = () => {
+  if (global.appTarget === 'local') {
+    mongoose.connection.close()
+  } else {
+    //send delete/me/token
+  }
+}
+
+function startMainProcess () {
   inquirer.prompt(questions).then((answers) => {
-    let searchCriterias = process.computeSearchCriterias(answers)
+    let searchCriterias = processResults.computeSearchCriterias(answers)
 
-    Player.find(searchCriterias)
+    //Player.find(searchCriterias) //getPlayers(searchCriteria)
+    getPlayers(searchCriterias)
       .then(players => {
         return processDbResults(players, answers)
       })
@@ -29,11 +43,11 @@ function promptQuestions () {
       })
       .catch((e) => {
         console.log(e)
-        mongoose.connection.close()
+        closeConnection() //endProcess(env)
       })
   }).catch((e) => {
     console.log(e)
-    mongoose.connection.close()
+    closeConnection() //endProcess(env)
   })
 }
 
@@ -41,23 +55,44 @@ function promptFinaleQuestion () {
   inquirer.prompt(finalQuestion).then((answers) => {
     if (isPositiveResponse(answers.continue)) {
       console.log('\n')
-      promptQuestions()
+      startMainProcess()
     } else {
-      mongoose.connection.close()
+      closeConnection() //endProcess(env)
     }
   }).catch((e) => {
     console.log(e)
-    mongoose.connection.close()
+    closeConnection() //endProcess(env)
   })
 }
 
-const myEmitter = new EventEmitter()
+const startLocalScript = () => {
+  const myEmitter = new EventEmitter()
 
-mongoose.connection.once('connected', function () {
-  greetings()
-  myEmitter.emit('start Application')
-})
+  mongoose.connection.once('connected', function () {
+    greetings()
+    myEmitter.emit('start Application')
+  })
 
-myEmitter.on('start Application', () => {
-  promptQuestions()
-})
+  myEmitter.on('start Application', () => {
+    startMainProcess()
+  })
+}
+
+const startExternalScript = () => {
+  const { performLoginOrSignUp } = require('./externalOption/external')
+  performLoginOrSignUp()
+    .then(() => {
+      console.log('hey 2 : will perform mainProcess')
+      //startMainProcess()
+    })
+}
+
+const startScript = () => {
+  if (global.appTarget === 'local') {
+    startLocalScript()
+  } else {
+    startExternalScript()
+  }
+}
+
+startScript()

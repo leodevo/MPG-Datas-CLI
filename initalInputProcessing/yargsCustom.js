@@ -5,6 +5,16 @@ const argv = require('yargs')
     boolean: true,
     describe: 'boolean to determine whether to use local DB or external REST API'
   })
+  .option('sign-up', {
+    alias: 's',
+    default: false,
+    boolean: true,
+    describe: 'To sign up new account'
+  })
+  .option('emailLogin', {
+    alias: '@',
+    describe: 'Email used to login'
+  })
   .help()
   .argv
 
