@@ -36,7 +36,7 @@ const postLogin = (email, password) => {
     })
     .catch((e) => {
       if (e.statusCode === 400) {
-        console.log('\n Impossible de se connecter avec les identifiants fournis. (Si vous utilisez ce client pour la première fois, pensez à d\'abord sign up avec l\'argument -s : \'npm start -s\' \n \n'.bold)
+        console.log('\n Impossible de se connecter avec les identifiants fournis. (Si vous utilisez ce client pour la première fois, pensez à d\'abord sign up avec l\'argument -s : \'npm start -- -s\' \n \n'.bold)
         throw new Error()
       }
     })
