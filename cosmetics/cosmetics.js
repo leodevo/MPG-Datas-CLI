@@ -14,11 +14,16 @@ const greetings = () => {
   console.log('\n \n \n')
 }
 
-const logSeparation = () => {
+const printSeparation = () => {
   console.log('\n \n \t \t \t ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   \n')
+}
+
+const printGoodBye = () => {
+  printSeparation()
 }
 
 module.exports = {
   greetings,
-  logSeparation
+  printGoodBye,
+  printSeparation
 }

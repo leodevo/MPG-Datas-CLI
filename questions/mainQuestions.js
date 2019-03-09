@@ -66,19 +66,19 @@ const questions =
   message: 'Poste ?',
   default: 'Tous'
 }, {
-  name: 'tituAndSubsMin',
+  name: 'min_tituAndSubs',
   type: 'input',
   message: `Nombre de titularisations + remplacements minimum ? (MAX ${constants.NUMBER_OF_GAMES})`,
   default: '0',
   validate: validateNumberOfLastGames
 }, {
-  name: 'tituAndSubsMinLast10games',
+  name: 'min_tituAndSubsLast10games',
   type: 'input',
   message: `Nombre de titularisations + remplacements minimum pour les 10 derniers matchs? (MAX 10)`,
   default: '0',
   validate: validateTituAndSubsLast10games
 }, {
-  name: 'coteMax',
+  name: 'max_cote',
   type: 'input',
   message: `Cote MAX ? (${constants.COTE_MAX})`,
   default: constants.COTE_MAX.toString(),

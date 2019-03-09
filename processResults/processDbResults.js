@@ -5,14 +5,14 @@ const {
   tableCharacteristics,
   createTableCharacteristicsAdditionalDatas
 } = require('../constants/tableConstants')
-const { logSeparation } = require('../cosmetics/cosmetics')
+const { printSeparation } = require('../cosmetics/cosmetics')
 
 function processDbResults (players, answers) {
   const createDisplayTable = new Promise(function (resolve, reject) {
     let displayTable
     const displayAdditionalDatas = answers.additionalDatas && answers.numberOfLastGames
 
-    logSeparation()
+    printSeparation()
     console.log(`\n \t \t \t \t    Nombre de joueurs correspondant aux critères de recherche : ${players.length} \n \n`.bold)
 
     if (displayAdditionalDatas) {
@@ -39,6 +39,4 @@ function processDbResults (players, answers) {
   return createDisplayTable
 }
 
-module.exports = {
-  processDbResults
-}
+module.exports = processDbResults

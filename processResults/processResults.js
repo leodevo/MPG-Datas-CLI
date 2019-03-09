@@ -1,4 +1,6 @@
 const { constants } = require('../constants/generalConstant')
+const { computeSearchCriteriasLocal } = require('./../options/local/local')
+const { computeSearchCriteriasExternal } = require('./../options/external/external')
 
 const {
   compareAverage,
@@ -86,27 +88,11 @@ function pushPlayerDatas (player, displayTable, displayAdditionalDatas) {
 }
 
 function computeSearchCriterias (answers) {
-  let searchCriterias = {
-    tituAndSubs: { $gte: answers.tituAndSubsMin },
-    tituAndSubsLast10games: { $gte: answers.tituAndSubsMinLast10games },
-    cote: { $lte: answers.coteMax }
+  if (global.appTarget === 'local') {
+    return computeSearchCriteriasLocal(answers)
+  } else {
+    return computeSearchCriteriasExternal(answers)
   }
-
-  switch (answers.position) {
-    case 'Tous':
-      break
-    case 'Tous sauf G':
-      searchCriterias.position = { $ne: 'G' }
-      break
-    case 'D':
-    case 'M':
-    case 'A':
-    case 'G':
-      searchCriterias.position = answers.position
-      break
-    default:
-  }
-  return searchCriterias
 }
 
 function calculateAverageAndAppearancesFromLastGames (gamesGrades, numberOfLastGames) {
