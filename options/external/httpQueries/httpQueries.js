@@ -12,9 +12,6 @@ const postUser = (email, password) => {
     json: true // Automatically stringifies the body to JSON
   }
 
-  console.log('(send) : uri : ', options.uri)
-  console.log('(send) : body : ', options.body)
-
   return rp(options)
     .then(response => {
       global['x-auth_token'] = response.headers['x-auth']
@@ -37,6 +34,12 @@ const postLogin = (email, password) => {
     .then(response => {
       global['x-auth_token'] = response.headers['x-auth']
     })
+    .catch((e) => {
+      if (e.statusCode === 400) {
+        console.log('\n Impossible de se connecter avec les identifiants fournis. (Si vous utilisez ce client pour la première fois, pensez à d\'abord sign up avec l\'argument -s : \'npm start -s\' \n \n'.bold)
+        throw new Error()
+      }
+    })
 }
 
 const getPlayersExternal = (searchCriterias) => {
@@ -53,7 +56,6 @@ const getPlayersExternal = (searchCriterias) => {
 
   return rp(options)
     .then(response => {
-      console.log('response.body.players.length : ', response.body.players.length)
       return response.body.players
     })
 }

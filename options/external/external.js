@@ -22,6 +22,7 @@ const askForPasswordOnly = () => {
 const askForEmailAndPassword = () => {
   return inquirer.prompt(loginQuestionsPasswordAndEmail)
     .then((answers) => {
+      return postLogin(answers.emailLogin, answers.password)
     })
 }
 
