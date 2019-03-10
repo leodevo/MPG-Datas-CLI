@@ -8,7 +8,8 @@ This CLI can be used in two ways :
 - **'local' mode :** interacts directly with a local DB
 
 *PS : to be used in 'local' mode, users should first extract datas using the script from the following project : leodevo/MPG-Datas-Extraction*
-  
+ 
+![](MPG-Datas-CLI.gif)
 
 # What I Learned
 
