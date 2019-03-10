@@ -1,4 +1,5 @@
-// TODO: fix vulnerabilities
+// TODO: fix node_modules vulnerabilities
+// TODO: get number of games values from server
 require('./config/config')
 require('./initalInputProcessing/initialInputProcess')
 require('colors')
@@ -77,6 +78,8 @@ function promptFinaleQuestion () {
 }
 
 const startScript = () => {
+  greetings()
+
   let script
 
   if (global.appTarget === 'local') {
@@ -87,7 +90,6 @@ const startScript = () => {
 
   script()
     .then(() => {
-      greetings()
       startMainProcess()
     }, (err) => {
       console.log(err)

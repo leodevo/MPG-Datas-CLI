@@ -16,7 +16,7 @@ if (global.appTarget === 'external') {
         throw new Error('Email fourni invalide !')
       }
 
-      console.log('Email fourni pour login : ', global['emailLogin'])
+      console.log('Email given for login : ', global['emailLogin'])
     }
   }
 }

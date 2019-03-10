@@ -24,7 +24,7 @@ const TEAM_MAP = new Map([
 
 const constants = {
   COTE_MAX: 500,
-  NUMBER_OF_GAMES: 26,
+  NUMBER_OF_GAMES: 26, // TODO: this value should be sent by the server in external mode
   NUMBER_OF_PLAYER_DISPLAY_MAX: 100,
   NUMBER_DISPLAY_DECIMALS_AVERAGE: 3,
   TEAM_MAP

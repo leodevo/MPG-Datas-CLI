@@ -15,7 +15,7 @@ const greetings = () => {
 }
 
 const printSeparation = () => {
-  console.log('\n \n \t \t \t ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   \n')
+  console.log('  \n \n \t \t \t ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   ██   \n')
 }
 
 const printGoodBye = () => {

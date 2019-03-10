@@ -33,7 +33,7 @@ const isPositiveResponseAdditionalDatas = response => {
 }
 
 const validateCote = value => {
-  let pass = value.match(/^[0-9]?[0-9]?[0-9]?$/i) && (value <= constants.COTE_MAX)
+  let pass = value.match(/^[0-9][0-9]?[0-9]?$/i) && (value <= constants.COTE_MAX)
   return pass ? true : `Nombre invalide, entrez un chiffre entre 0 et ${constants.COTE_MAX}`
 }
 
