@@ -8,7 +8,36 @@ This CLI can be used in two ways :
 - **'local' mode :** interacts directly with a local DB
 
 *PS : to be used in 'local' mode, users should first extract datas using the script from the following project : leodevo/MPG-Datas-Extraction*
- 
+
+## Getting Started
+
+Clone the repo : 
+
+```
+git clone https://github.com/leodevo/MPG-Datas-CLI
+```
+
+To install :
+
+```
+npm i
+```
+
+## Usage :
+
+To sign up use 's' argument :
+
+```
+npm start -- -s 
+```
+(default is login)
+
+To login faster, you can provide the email used for the signup with the '@' argument :
+```
+npm start -- -@=<yourEmail>
+```
+
+## Demo : 
 ![](MPG-Datas-CLI-demo.gif)
 
 # What I Learned
