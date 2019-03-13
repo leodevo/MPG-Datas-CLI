@@ -9,7 +9,7 @@ This CLI can be used in two ways :
 
 *PS : to be used in 'local' mode, users should first extract datas using the script from the following project : leodevo/MPG-Datas-Extraction*
  
-![](MPG-Datas-CLI.gif)
+![](MPG-Datas-CLI-demo.gif)
 
 # What I Learned
 
