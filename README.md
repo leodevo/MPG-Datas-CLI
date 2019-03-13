@@ -30,7 +30,12 @@ To sign up use 's' argument :
 ```
 npm start -- -s 
 ```
-(default is login)
+
+To login, no argument is required  (login triggered by default)
+
+```
+npm start
+```
 
 To login faster, you can provide the email used for the signup with the '@' argument :
 ```
