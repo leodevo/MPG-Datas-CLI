@@ -37,6 +37,11 @@ To login faster, you can provide the email used for the signup with the '@' argu
 npm start -- -@=<yourEmail>
 ```
 
+To show options :
+```
+ npm start -- --help
+```
+
 ## Demo : 
 ![](MPG-Datas-CLI-demo.gif)
 
